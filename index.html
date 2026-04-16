@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lynn's Birthday Sandbox</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="crt-overlay"></div>
+    <div class="scanlines"></div>
+
+    <div id="ui-layer">
+        <header class="status-bar">
+            <div>LYNN'S FUN HANGOUT</div>
+            <div class="blink" style="color: var(--accent-neon-green)">USE W A S D OR JOYSTICK TO EXPLORE</div>
+        </header>
+
+        <div id="dialog-container" class="dialog-container hidden">
+            <div class="dialog-box">
+                <div id="dialog-icon" class="quest-icon">🎯</div>
+                <div class="quest-details">
+                    <h3 id="dialog-title">TITLE</h3>
+                    <p id="dialog-text">Text</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="rsvp-modal" class="modal hidden">
+            <div class="modal-content dialog-box">
+                <h2>🏆 QUEST ACCEPTED 🏆</h2>
+                <p>Please send your details and RSVP to A Person so we can finalize the roster! 😄</p>
+                <button id="close-modal-btn" class="retro-btn sm-btn">AWESOME!</button>
+            </div>
+        </div>
+
+        <div id="joystick-zone">
+            <div id="joystick-base">
+                <div id="joystick-stick"></div>
+            </div>
+            <div id="action-btn" class="action-btn">A</div>
+        </div>
+    </div>
+
+    <!-- The Game World Viewport -->
+    <div id="game-viewport">
+        <div id="world">
+            
+            <div class="ground-pattern"></div>
+            
+            <!-- SVG Trails -->
+            <svg id="trail-layer" width="2000" height="2000">
+                <path id="trail-path" class="trail-line" d=""></path>
+            </svg>
+
+            <!-- Dynamically generated Nature -->
+            <div id="nature-layer"></div>
+
+            <!-- Points of Interest -->
+            <div class="poi" id="poi-intro" data-type="intro">
+                <div class="poi-sprite">🏛️</div>
+                <div class="poi-label">READ ME</div>
+            </div>
+            <div class="poi" id="poi-paintball" data-type="paintball">
+                <div class="poi-sprite">⛺</div>
+                <div class="poi-label">PAINTBALL</div>
+            </div>
+            <div class="poi" id="poi-pottery" data-type="pottery">
+                <div class="poi-sprite">🛖</div>
+                <div class="poi-label">POTTERY</div>
+            </div>
+            <div class="poi" id="poi-picnic" data-type="picnic">
+                <div class="poi-sprite">🌳</div>
+                <div class="poi-label">PICNIC</div>
+            </div>
+            <div class="poi" id="poi-cake" data-type="cake">
+                <div class="poi-sprite">🎪</div>
+                <div class="poi-label">CAKE</div>
+            </div>
+            <div class="poi" id="poi-rsvp" data-type="rsvp">
+                <div class="poi-sprite">📬</div>
+                <div class="poi-label">RSVP</div>
+            </div>
+
+            <!-- The Player Sprite -->
+            <div id="player">
+                <div class="player-sprite">🚶</div>
+                <div class="player-shadow"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
