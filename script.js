@@ -135,6 +135,13 @@ const joyZone = document.getElementById('joystick-zone');
 const joyStick = document.getElementById('joystick-stick');
 const joyBase = document.getElementById('joystick-base');
 
+// Force display on mobile via JS (Bulletproof fallback)
+if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+    joyZone.style.setProperty('display', 'flex', 'important');
+    let blinkEl = document.querySelector('.status-bar .blink');
+    if (blinkEl) blinkEl.style.setProperty('display', 'none', 'important');
+}
+
 function handleTouch(e) {
     if(!state.joystick.active) return;
     e.preventDefault();
