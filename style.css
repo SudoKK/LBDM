@@ -198,7 +198,12 @@ body, html {
 .landing-title {
     font-family: var(--font-heading); color: var(--accent-neon-pink);
     font-size: clamp(2.5rem, 5vw, 5rem); filter: drop-shadow(4px 4px 0 #000);
-    margin-bottom: 50px; animation: pulse 2s infinite; line-height: 1.2;
+    margin-bottom: 20px; animation: pulse 2s infinite; line-height: 1.2;
+}
+.landing-subtitle {
+    font-family: var(--font-heading); color: var(--accent-neon-blue);
+    font-size: clamp(1.2rem, 3vw, 2.5rem); filter: drop-shadow(3px 3px 0 #000);
+    margin-bottom: 50px; line-height: 1.2;
 }
 .start-btn { font-size: clamp(1.5rem, 3vw, 2.5rem); padding: 20px 40px; background-color: var(--accent-neon-green); color: black;}
 
