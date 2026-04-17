@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -9,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css?v=2">
 </head>
+
 <body>
 
     <div class="crt-overlay"></div>
@@ -33,8 +35,25 @@
         <div id="rsvp-modal" class="modal hidden">
             <div class="modal-content dialog-box">
                 <h2>🏆 QUEST ACCEPTED 🏆</h2>
-                <p>Please send your details and RSVP to A Person so we can finalize the roster! 😄</p>
-                <button id="close-modal-btn" class="retro-btn sm-btn">AWESOME!</button>
+                <p>Enter your name below to officially reserve your spot on the roster! 😄</p>
+
+                <!-- Hidden iframe to prevent google forms from redirecting the page -->
+                <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
+                    onload="if(window.submitted) { document.getElementById('rsvp-form-container').innerHTML = '<h3 style=\'color: var(--accent-neon-green); margin-top:20px;\'>SUCCESS! YOU ARE ON THE LIST!</h3><br><button id=\'close-modal-btn2\' class=\'retro-btn sm-btn\'>AWESOME</button>'; document.getElementById('close-modal-btn2').onclick = function() { document.getElementById('rsvp-modal').classList.add('hidden'); } }"></iframe>
+
+                <div id="rsvp-form-container" style="width: 100%;">
+                    <form action="https://docs.google.com/forms/d/e/1FAIpQLSfKGvS_xS952WJDdqs2X-jk6CSx38KFGC91uXxeqgToRNlQ7A/formResponse" method="POST" target="hidden_iframe"
+                        onsubmit="window.submitted=true;"
+                        style="display:flex; flex-direction:column; gap:10px; align-items:center;">
+                        <input type="text" name="entry.1424588134" placeholder="Your Name" class="retro-input"
+                            required>
+                        <div style="display:flex; gap: 1rem; margin-top: 15px;">
+                            <button type="submit" class="retro-btn sm-btn">SUBMIT</button>
+                            <button type="button" id="close-modal-btn" class="retro-btn sm-btn"
+                                style="background-color: var(--accent-neon-pink);">CANCEL</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
 
@@ -49,9 +68,9 @@
     <!-- The Game World Viewport -->
     <div id="game-viewport">
         <div id="world">
-            
+
             <div class="ground-pattern"></div>
-            
+
             <!-- SVG Trails -->
             <svg id="trail-layer" width="2000" height="2000">
                 <path id="trail-path" class="trail-line" d=""></path>
@@ -97,4 +116,5 @@
 
     <script src="script.js?v=2"></script>
 </body>
+
 </html>
