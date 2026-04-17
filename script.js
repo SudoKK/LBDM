@@ -23,6 +23,7 @@ const TRIGGER_DISTANCE = 160;
 
 // Game State
 const state = {
+    gameStarted: false,
     x: 230, y: 350, // Start slightly off the path center so it looks cooler
     speed: 7,
     keys: { w: false, a: false, s: false, d: false, ArrowUp: false, ArrowLeft: false, ArrowDown: false, ArrowRight: false },
@@ -128,6 +129,15 @@ buildNature();
 
 // --- INPUT & MOVEMENT LOGIC --- //
 
+// Start Game Handler
+document.getElementById('start-game-btn').addEventListener('click', () => {
+    document.getElementById('landing-screen').classList.add('fade-out');
+    setTimeout(() => {
+        document.getElementById('landing-screen').style.display = 'none';
+        state.gameStarted = true;
+    }, 1500);
+});
+
 window.addEventListener('keydown', e => { if (state.keys.hasOwnProperty(e.key)) state.keys[e.key] = true; });
 window.addEventListener('keyup', e => { if (state.keys.hasOwnProperty(e.key)) state.keys[e.key] = false; });
 
@@ -209,6 +219,11 @@ document.getElementById('close-modal-btn').addEventListener('click', () => rsvpM
 
 // --- GAME LOOP --- //
 function update() {
+    if (!state.gameStarted) {
+        requestAnimationFrame(update);
+        return; // Pause game execution while on landing screen
+    }
+
     let dx = 0, dy = 0;
     if (state.keys.w || state.keys.ArrowUp) dy -= 1;
     if (state.keys.s || state.keys.ArrowDown) dy += 1;
