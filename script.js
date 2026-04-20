@@ -3,7 +3,7 @@ const DIALOG_DATA = {
     'paintball': { icon: '🎯', title: "PAINTBALLING - KES 1000", text: "Action, strategy, and friendly competition! Get ready for paintball 😄" },
     'pottery': { icon: '🎨', title: "POT PAINTING - KES 500", text: "Unwind and get creative. Paint your own pot as a keepsake! 🌱" },
     'picnic': { icon: '🧺', title: "PICNIC TIME - KES 700", text: "Relaxed vibes and music! Please suggest the food and drinks you want, and we'll compile a final list afterwards to see what to get. 😊" },
-    'cake': { icon: '🍰', title: "CAKE & CELEBRATIONS", text: "We'll wrap up the day with cake! 🎂" },
+    'cake': { icon: '🍰', title: "CAKE & GIFTING", text: "We'll wrap up the day with cake! 🎂" },
     'rsvp': { icon: '📬', title: "RSVP NOW", text: "Ready to join the party?<br><button id='game-rsvp-btn' class='retro-btn'>ACCEPT QUEST</button>" }
 };
 
